@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Типові помилки при складанні НМТ</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+        header {
+            background-color: #0057b7;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        main {
+            padding: 20px;
+            max-width: 960px;
+            margin: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #0057b7;
+            cursor: pointer;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        footer {
+            background: #eee;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.9em;
+            margin-top: 40px;
+        }
+        .collapsible-content {
+            display: none;
+            margin-top: 10px;
+        }
+        .quiz {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .quiz-question {
+            margin-bottom: 15px;
+        }
+        .quiz-answer {
+            margin: 5px 0;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 5px;
+        }
+        .quiz-answer:hover {
+            background-color: #dceeff;
+        }
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        input, textarea, button {
+            padding: 10px;
+            font-size: 1em;
+        }
+        button {
+            background-color: #0057b7;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Типові помилки при складанні НМТ</h1>
+    </header>
+    <main>
+        <section>
+            <h2 onclick="toggleContent('intro')">Що таке НМТ?</h2>
+            <div id="intro" class="collapsible-content">
+                <p>Національний мультипредметний тест (НМТ) — це форма вступного іспиту для вступу до закладів вищої освіти України. Він включає завдання з кількох предметів одночасно (зазвичай українська мова, математика, історія України та інші).</p>
+                <p>НМТ проводиться в електронному форматі та вимагає швидкої орієнтації, уважності та знань у ключових сферах шкільної програми.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 onclick="toggleContent('errors')">Типові помилки</h2>
+            <div id="errors" class="collapsible-content">
+                <h3>Українська мова:</h3>
+                <ul>
+                    <li>Невміння розпізнавати види речень.</li>
+                    <li>Плутанина в правописі слів із чергуванням голосних.</li>
+                    <li>Нехтування розділовими знаками при складних реченнях.</li>
+                </ul>
+
+                <h3>Математика:</h3>
+                <ul>
+                    <li>Помилки при розв’язуванні рівнянь.</li>
+                    <li>Неправильне використання формул площі та об'єму.</li>
+                    <li>Неуважність при роботі з дробами та десятковими числами.</li>
+                </ul>
+
+                <h3>Історія України:</h3>
+                <ul>
+                    <li>Невірне запам'ятовування дат ключових подій.</li>
+                    <li>Плутанина у хронології між подіями.</li>
+                    <li>Помилки у визначенні історичних постатей.</li>
+                </ul>
+                <p><strong>Приклад:</strong> У якому році відбулася битва під Крутами? — Часто плутають з іншими подіями 1918 року.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2 onclick="toggleContent('quiz')">Міні-тест</h2>
+            <div id="quiz" class="collapsible-content quiz">
+                <div class="quiz-question">
+                    <strong>1. У якому році була прийнята Конституція України?</strong>
+                    <div class="quiz-answer" onclick="checkAnswer(this, true)">б) 1996</div>
+                    <div class="quiz-answer" onclick="checkAnswer(this, false)">а) 1990</div>
+                    <div class="quiz-answer" onclick="checkAnswer(this, false)">в) 2004</div>
+                    <div class="feedback"></div>
+                </div>
+                <div class="quiz-question">
+                    <strong>2. Корінь рівняння x² = 4?</strong>
+                    <div class="quiz-answer" onclick="checkAnswer(this, true)">б) 2</div>
+                    <div class="quiz-answer" onclick="checkAnswer(this, false)">а) 1</div>
+                    <div class="quiz-answer" onclick="checkAnswer(this, false)">в) безліч</div>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2 onclick="toggleContent('resources')">Корисні ресурси</h2>
+            <div id="resources" class="collapsible-content">
+                <ul>
+                    <li><a href="https://testportal.gov.ua/" target="_blank">testportal.gov.ua</a> — Офіційний сайт УЦОЯО</li>
+                    <li><a href="https://zno.osvita.ua/" target="_blank">zno.osvita.ua</a> — Завдання та тренувальні тести</li>
+                    <li><a href="https://ilearn.org.ua/" target="_blank">iLearn</a> — Онлайн-платформа для підготовки</li>
+                    <li><a href="https://prometheus.org.ua/" target="_blank">Prometheus</a> — Безкоштовні онлайн-курси</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 onclick="toggleContent('feedback')">Зворотний зв'язок</h2>
+            <div id="feedback" class="collapsible-content">
+                <form action="mailto:olek123wert@gmail.com" method="post" enctype="text/plain">
+                    <label for="name">Ім'я:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="message">Повідомлення:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+
+                    <button type="submit">Надіслати</button>
+                </form>
+                <p><small>Після натискання відкриється ваш поштовий клієнт для надсилання листа.</small></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        &copy; 2025 Підготовка до НМТ | Освітній ресурс
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const el = document.getElementById(id);
+            el.style.display = el.style.display === "block" ? "none" : "block";
+        }
+
+        function checkAnswer(element, isCorrect) {
+            const feedback = element.parentElement.querySelector(".feedback");
+            if (isCorrect) {
+                feedback.textContent = "Молодець!";
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent = "Спробуй ще раз.";
+                feedback.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
